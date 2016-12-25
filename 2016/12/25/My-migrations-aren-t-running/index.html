@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang=En>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="I had a pretty frustrating experience today. It goes a little something likethis:
+Working on client websiteRealizes that database needs to be setupCreates some migrations and models…runs them
+Errors
+W">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My migrations aren't running">
+<meta property="og:url" content="https://imsean.me/2016/12/25/My-migrations-aren-t-running/index.html">
+<meta property="og:site_name" content="Sean Wilson">
+<meta property="og:description" content="I had a pretty frustrating experience today. It goes a little something likethis:
+Working on client websiteRealizes that database needs to be setupCreates some migrations and models…runs them
+Errors
+W">
+<meta property="og:updated_time" content="2016-12-25T08:56:34.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My migrations aren't running">
+<meta name="twitter:description" content="I had a pretty frustrating experience today. It goes a little something likethis:
+Working on client websiteRealizes that database needs to be setupCreates some migrations and models…runs them
+Errors
+W">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>My migrations aren&#39;t running</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/seanc">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2016/12/25/Moved-to-Hexo/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imsean.me/2016/12/25/My-migrations-aren-t-running/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&text=My migrations aren&#39;t running"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&is_video=false&description=My migrations aren&#39;t running"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=My migrations aren&#39;t running&body=Check out this article: https://imsean.me/2016/12/25/My-migrations-aren-t-running/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&name=My migrations aren&#39;t running&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        My migrations aren&#39;t running
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sean Wilson</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-12-25T08:34:39.000Z" itemprop="datePublished">2016-12-25</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/rant-explicit/">rant explicit</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>I had a pretty frustrating experience today. It goes a little something like<br>this:</p>
+<p><em>Working on client website</em><br><em>Realizes that database needs to be setup</em><br><em>Creates some migrations and models</em><br><em>…runs them</em></p>
+<p><strong>Errors</strong></p>
+<p>What the hell?</p>
+<p><strong>ER_TABLE_NOT_FOUND</strong></p>
+<p>Um, what? Of course the damn table isn’t going to be found, it’s supposed to<br>create it!</p>
+<p><em>Tries the same command several times in hopes of a different outcome…nothing</em></p>
+<p>Sigh, okay. Maybe the maintainer screwed something up.</p>
+<p><em>Creates an issue</em><br><em>…few hours lateeeeer</em></p>
+<p>Maintainer: It’s <code>this.create</code> not <code>this.table</code>, <code>this.table</code> is for altering<br>the table.</p>
+<p>Oh.</p>
+<p>…Okay.</p>
+<p>Cool.</p>
+<p>Alright.</p>
+<p><em>After bashing self for blatant idiocy, thanks maintainer and closes issue</em></p>
+<p><em>Makes changes to code</em></p>
+<p><em>Runs the migrations</em></p>
+<p><strong>Errors</strong></p>
+<p>OH MY FUCKING GOD, WHAT THE HELL!</p>
+<p><strong>Column name is too long</strong></p>
+<p>Er..okay.. Simple fix I guess.</p>
+<p><em>Quick trip to Stack Overflow reveals I just need to change a setting</em></p>
+<p><em>Changes setting</em></p>
+<p><em>Runs migrations</em></p>
+<p><strong>Errors</strong></p>
+<p>…</p>
+<p><strong><em>Completely ambiguous error</em></strong></p>
+<p>What. The. Fuck.</p>
+<p><em>…few hours lateeer [after many failures…]</em></p>
+<p>FUCK YOU MARIADB, FUCK EVERYTHING, DAMMIT MYSQL HERE I FUCKING COME!</p>
+<p><em>Uninstalls MariaDB</em></p>
+<p><em>Installs mysql-server</em></p>
+<p><em>…installing…</em><br><em>…installing…</em><br><em>…installing…</em></p>
+<p><strong>Errors</strong></p>
+<p>Oh my god, I really don’t have time for this!</p>
+<p>_…few hours later [after taking multiple trips to Stack Overflow, mysql installed]</p>
+<p><em>Runs migrations</em></p>
+<p><em>…</em></p>
+<p><strong>Errors</strong></p>
+<p>FU….- Oh. Just missing the database. Okay. Alright. Simple Fix</p>
+<p><em>Logs into phpmyadmin, goes to create database</em></p>
+<p><strong>Errors</strong></p>
+<p>Oh my god, what the hell could it be now??</p>
+<p><em>phpmyadmin was specifically configured for mariadb</em></p>
+<p>Alright. Fine. Let’s just reinstall it then.</p>
+<p><em>Uninstalls phpmyadmin</em></p>
+<p><em>…</em></p>
+<p><em>Installs phpmyadmin</em></p>
+<p>Okay. How about now?</p>
+<p><strong>Errors</strong></p>
+<p>UGHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</p>
+<p><em>phpmyadmin never invoked dbconfig-common so the main database is missing</em></p>
+<p>Ah okay. Let’s just run it ourselves then</p>
+<p><em>Runs dbconfig-common</em></p>
+<p><em>Tries creating database again</em></p>
+<p><strong>Errors</strong></p>
+<p><em>dbcommon-config only created the database, none of the core tables</em></p>
+<p>Fuck! Okay.</p>
+<p><em>Quick trip to Stack Overflow</em></p>
+<p>Oh right. I can just run the bootstrap SQL code myself.</p>
+<p><em>Finds the file, copy pastes into phpmyadmin and runs</em></p>
+<p><em>…</em></p>
+<p><strong>Errors</strong></p>
+<p><em>Specific table doesn’t exist</em></p>
+<p>WELL OF FUCKING COURSE THE GOD DAMN TABLE DOESN’T EXIST, I HAVEN’T MADE IT YET!</p>
+<p><em>Creates table</em></p>
+<p><em>Runs SQL code again</em></p>
+<p><em>…</em><br><em>…</em><br><em>…</em></p>
+<p><em>Successful</em></p>
+<p>OH THANK GOD!</p>
+<p><em>Already lost all motivation for what needed to be done originally</em></p>
+<hr>
+<p>Story of my life. Every. Fucking. Time.</p>
+<p>Thanks for reading, hope you enjoyed!</p>
+<p>(PS. This is a true story.)</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/seanc">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imsean.me/2016/12/25/My-migrations-aren-t-running/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&text=My migrations aren&#39;t running"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&is_video=false&description=My migrations aren&#39;t running"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=My migrations aren&#39;t running&body=Check out this article: https://imsean.me/2016/12/25/My-migrations-aren-t-running/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&title=My migrations aren&#39;t running"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imsean.me/2016/12/25/My-migrations-aren-t-running/&name=My migrations aren&#39;t running&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Sean Wilson
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/seanc">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-73390680-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'seanscorner';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
