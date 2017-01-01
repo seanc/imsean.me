@@ -434,7 +434,11 @@
 *:after {
   box-sizing: border-box;
 }
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   color: #c9cacc;
   background-color: #1d1f21;
   font-size: 14px;
@@ -450,6 +454,8 @@ body {
 }
 .content {
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 .content p {
   -moz-hyphens: auto;
