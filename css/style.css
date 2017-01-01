@@ -434,10 +434,6 @@
 *:after {
   box-sizing: border-box;
 }
-html {
-  height: 100%;
-  border-top: 2px solid #c9cacc;
-}
 body {
   color: #c9cacc;
   background-color: #1d1f21;
