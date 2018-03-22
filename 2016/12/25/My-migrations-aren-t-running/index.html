@@ -8,23 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="I had a pretty frustrating experience today. It goes a little something like this:
 
-Working on client websiteRealizes that database needs to be setupCreates some migrations and models…runs them
-Errors">
+Working on client website
+Realizes that database needs to be setup
+Creates some migrations and models
+...runs them
+E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="My migrations aren't running!">
 <meta property="og:url" content="https://imsean.me/2016/12/25/My-migrations-aren-t-running/index.html">
 <meta property="og:site_name" content="Sean Wilson">
 <meta property="og:description" content="I had a pretty frustrating experience today. It goes a little something like this:
 
-Working on client websiteRealizes that database needs to be setupCreates some migrations and models…runs them
-Errors">
+Working on client website
+Realizes that database needs to be setup
+Creates some migrations and models
+...runs them
+E">
 <meta property="og:updated_time" content="2016-12-26T06:12:19.052Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My migrations aren't running!">
 <meta name="twitter:description" content="I had a pretty frustrating experience today. It goes a little something like this:
 
-Working on client websiteRealizes that database needs to be setupCreates some migrations and models…runs them
-Errors">
+Working on client website
+Realizes that database needs to be setup
+Creates some migrations and models
+...runs them
+E">
     
     
         
@@ -156,17 +165,21 @@ Errors">
   <div class="content" itemprop="articleBody">
     <p>I had a pretty frustrating experience today. It goes a little something like this:</p>
 <hr>
-<p><em>Working on client website</em><br><em>Realizes that database needs to be setup</em><br><em>Creates some migrations and models</em><br><em>…runs them</em></p>
+<p><em>Working on client website</em>
+<em>Realizes that database needs to be setup</em>
+<em>Creates some migrations and models</em>
+<em>...runs them</em></p>
 <p><strong>Errors</strong></p>
 <p>What the hell?</p>
 <p><strong>ER_TABLE_NOT_FOUND</strong></p>
-<p>Um, what? Of course the damn table isn’t going to be found, it’s supposed to create it!</p>
-<p><em>Tries the same command several times in hopes of a different outcome…nothing</em></p>
+<p>Um, what? Of course the damn table isn't going to be found, it's supposed to create it!</p>
+<p><em>Tries the same command several times in hopes of a different outcome...nothing</em></p>
 <p>Sigh, okay. Maybe the maintainer screwed something up.</p>
-<p><em>Creates an issue</em><br><em>…few hours lateeeeer</em></p>
-<p>Maintainer: It’s <code>this.create</code> not <code>this.table</code>, <code>this.table</code> is for altering the table.</p>
+<p><em>Creates an issue</em>
+<em>...few hours lateeeeer</em></p>
+<p>Maintainer: It's <code>this.create</code> not <code>this.table</code>, <code>this.table</code> is for altering the table.</p>
 <p>Oh.</p>
-<p>…Okay.</p>
+<p>...Okay.</p>
 <p>Cool.</p>
 <p>Alright.</p>
 <p><em>After bashing self for blatant idiocy, thanks maintainer and closes issue</em></p>
@@ -180,34 +193,36 @@ Errors">
 <p><em>Changes setting</em></p>
 <p><em>Runs migrations</em></p>
 <p><strong>Errors</strong></p>
-<p>…</p>
+<p>...</p>
 <p><strong><em>Completely ambiguous error</em></strong></p>
 <p>What. The. Fuck.</p>
-<p><em>…few hours lateeer [after many failures…]</em></p>
+<p><em>...few hours lateeer [after many failures...]</em></p>
 <p>FUCK YOU MARIADB, FUCK EVERYTHING, DAMMIT MYSQL HERE I FUCKING COME!</p>
 <p><em>Uninstalls MariaDB</em></p>
 <p><em>Installs mysql-server</em></p>
-<p><em>…installing…</em><br><em>…installing…</em><br><em>…installing…</em></p>
+<p><em>...installing...</em>
+<em>...installing...</em>
+<em>...installing...</em></p>
 <p><strong>Errors</strong></p>
-<p>Oh my god, I really don’t have time for this!</p>
-<p><em>…few hours later [after taking multiple trips to Stack Overflow, mysql installed]</em></p>
+<p>Oh my god, I really don't have time for this!</p>
+<p><em>...few hours later [after taking multiple trips to Stack Overflow, mysql installed]</em></p>
 <p><em>Runs migrations</em></p>
-<p><em>…</em></p>
+<p><em>...</em></p>
 <p><strong>Errors</strong></p>
-<p>FU….- Oh. Just missing the database. Okay. Alright. Simple Fix</p>
+<p>FU....- Oh. Just missing the database. Okay. Alright. Simple Fix</p>
 <p><em>Logs into phpmyadmin, goes to create database</em></p>
 <p><strong>Errors</strong></p>
 <p>Oh my god, what the hell could it be now??</p>
 <p><em>phpmyadmin was specifically configured for mariadb</em></p>
-<p>Alright. Fine. Let’s just reinstall it then.</p>
+<p>Alright. Fine. Let's just reinstall it then.</p>
 <p><em>Uninstalls phpmyadmin</em></p>
-<p><em>…</em></p>
+<p><em>...</em></p>
 <p><em>Installs phpmyadmin</em></p>
 <p>Okay. How about now?</p>
 <p><strong>Errors</strong></p>
 <p>UGHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</p>
 <p><em>phpmyadmin never invoked dbconfig-common so the main database is missing</em></p>
-<p>Ah okay. Let’s just run it ourselves then</p>
+<p>Ah okay. Let's just run it ourselves then</p>
 <p><em>Runs dbconfig-common</em></p>
 <p><em>Tries creating database again</em></p>
 <p><strong>Errors</strong></p>
@@ -216,13 +231,15 @@ Errors">
 <p><em>Quick trip to Stack Overflow</em></p>
 <p>Oh right. I can just run the bootstrap SQL code myself.</p>
 <p><em>Finds the file, copy pastes into phpmyadmin and runs</em></p>
-<p><em>…</em></p>
+<p><em>...</em></p>
 <p><strong>Errors</strong></p>
-<p><em>Specific table doesn’t exist</em></p>
-<p>WELL OF FUCKING COURSE THE GOD DAMN TABLE DOESN’T EXIST, I HAVEN’T MADE IT YET!</p>
+<p><em>Specific table doesn't exist</em></p>
+<p>WELL OF FUCKING COURSE THE GOD DAMN TABLE DOESN'T EXIST, I HAVEN'T MADE IT YET!</p>
 <p><em>Creates table</em></p>
 <p><em>Runs SQL code again</em></p>
-<p><em>…</em><br><em>…</em><br><em>…</em></p>
+<p><em>...</em>
+<em>...</em>
+<em>...</em></p>
 <p><em>Successful</em></p>
 <p>OH THANK GOD!</p>
 <p><em>Already lost all motivation for what needed to be done originally</em></p>
